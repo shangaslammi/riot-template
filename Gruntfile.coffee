@@ -66,12 +66,11 @@ module.exports = (grunt) ->
         type: 'coffeescript'
         modular:
           type: 'amd'
+          deps: ['riot']
       dist:
-        expand: true
-        cwd: 'src/riot'
-        src: '**/*.tag'
-        dest: 'public/js/modules/tags'
-        ext: '.js'
+        concat: true
+        src: 'src/riot/**/*.tag'
+        dest: 'public/js/modules/tags.js'
 
     connect:
       server:
@@ -186,9 +185,6 @@ module.exports = (grunt) ->
               'jquery'
             ]
             include: [
-              'components/example-component'
-
-              'text!../../components/example-component.html'
             ]
           ]
           throwWhen:

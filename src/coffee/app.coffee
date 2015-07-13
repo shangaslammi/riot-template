@@ -9,6 +9,8 @@ require.config
 
 define (require) ->
   riot = require 'riot'
-  require 'tags/example-tag'
+  require 'tags'
+
+  riot.mixin 'utils', require('utils')
 
   riot.mount('*')
