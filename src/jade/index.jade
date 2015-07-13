@@ -4,6 +4,7 @@ html
     meta(charset='UTF-8')
     link(rel='stylesheet', type='text/css', href="css/styles.css")
     title HTML5 Template Project
+
     script(type='text/javascript').
       require = {
           waitSeconds: 20,
@@ -12,10 +13,10 @@ html
           }
       }
   body
-    #main.hidden(data-bind='css: {hidden: false}')
+    #main
       h1 Hello Template
 
-      example-component(params='foo: "bar"')
+      example-tag
 
     script(type='text/javascript', src='js/vendor/require-2.1.19.min.js', data-main='app')
     if development

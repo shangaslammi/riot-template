@@ -4,11 +4,11 @@ require.config
   paths:
     'text': '../vendor/text-2.0.12'
     'jquery': '../vendor/jquery-2.1.4.min'
-    'knockout': '../vendor/knockout-3.3.0.min'
+    'riot': '../vendor/riot-2.2.1.min'
+
 
 define (require) ->
-  require 'components'
+  riot = require 'riot'
+  require 'tags/example-tag'
 
-  ko = require 'knockout'
-
-  ko.applyBindings {}
+  riot.mount('*')
