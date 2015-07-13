@@ -60,6 +60,19 @@ module.exports = (grunt) ->
         options:
           compress: true
 
+    riot:
+      options:
+        template: 'jade'
+        type: 'coffeescript'
+        modular:
+          type: 'amd'
+      dist:
+        expand: true
+        cwd: 'src/riot'
+        src: '**/*.tag'
+        dest: 'public/js/modules/tags'
+        ext: '.js'
+
     connect:
       server:
         options:
@@ -87,6 +100,10 @@ module.exports = (grunt) ->
       jade:
         files: ["src/jade/*.jade"]
         tasks: ["jade:compile"]
+
+      riot:
+        files: ["src/riot/**/*.tag"]
+        tasks: ["riot"]
 
       components:
         files: ["src/jade/components/*.jade"]
@@ -189,9 +206,10 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks "grunt-contrib-copy"
   grunt.loadNpmTasks "grunt-contrib-clean"
   grunt.loadNpmTasks "grunt-contrib-requirejs"
+  grunt.loadNpmTasks "grunt-riot"
   grunt.loadNpmTasks "grunt-newer"
   grunt.loadNpmTasks "grunt-filerev"
   grunt.loadNpmTasks "grunt-usemin"
 
-  grunt.registerTask "default", ["copy", "coffee", "jade:compile", "jade:components", "stylus", "connect", "watch"]
+  grunt.registerTask "default", ["copy", "coffee", "jade:compile", "jade:components", "stylus", "riot", "connect", "watch"]
   grunt.registerTask "build", ["clean", "copy", "coffee", "jade", "jade:prod", "stylus", "requirejs", "filerev", "usemin"]
