@@ -59,8 +59,8 @@ module.exports = (grunt) ->
         modular:
           type: 'amd'
           deps: ['riot']
-      dist:
         concat: true
+      dist:
         src: 'src/riot/**/*.tag'
         dest: 'public/js/modules/tags.js'
 
