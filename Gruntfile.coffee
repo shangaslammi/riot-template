@@ -64,6 +64,7 @@ module.exports = (grunt) ->
       options:
         template: 'jade'
         type: 'coffeescript'
+        expr: false
         modular:
           type: 'amd'
           deps: ['riot']
