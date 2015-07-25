@@ -38,15 +38,6 @@ module.exports = (grunt) ->
             data:
               development: false
 
-      components:
-        files: [
-          cwd: "src/jade/components"
-          src: ["[^_]*.jade"]
-          dest: "public/components"
-          ext: ".html"
-          expand: true
-        ]
-
     stylus:
       compile:
         files: [
@@ -104,10 +95,6 @@ module.exports = (grunt) ->
       riot:
         files: ["src/riot/**/*.tag"]
         tasks: ["riot"]
-
-      components:
-        files: ["src/jade/components/*.jade"]
-        tasks: ["newer:jade:components"]
 
       css:
         files: ["public/css/**/*.css"]
@@ -208,5 +195,5 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks "grunt-filerev"
   grunt.loadNpmTasks "grunt-usemin"
 
-  grunt.registerTask "default", ["copy", "coffee", "jade:compile", "jade:components", "stylus", "riot", "connect", "watch"]
+  grunt.registerTask "default", ["copy", "coffee", "jade:compile", "stylus", "riot", "connect", "watch"]
   grunt.registerTask "build", ["clean", "copy", "coffee", "jade", "jade:prod", "stylus", "requirejs", "filerev", "usemin"]
