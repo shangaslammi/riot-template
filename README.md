@@ -5,6 +5,7 @@ Minimal scaffolding for quickly setting up the development environment for a new
 * Compiles CoffeeScript files from `src/coffee` into `public/js/modules`
 * Compiles Stylus files from `src/stylus` into `public/css`
 * Compiles `src/jade/index.jade` into `public/html`
+* Compiles riot components from `src/riot` into `public/js/modules/tags.js`
 * Includes a static server
 * Watches for file changes and recompiles/reloads in browser
 * `.gitignore` for all generated files
@@ -12,7 +13,7 @@ Minimal scaffolding for quickly setting up the development environment for a new
 
 ## Usage
 
-    $ git clone https://github.com/shangaslammi/webapp-template.git
-    $ cd webapp-template
+    $ git clone https://github.com/shangaslammi/riot-template.git
+    $ cd riot-template
     $ npm install
     $ npm start 
